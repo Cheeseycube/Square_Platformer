@@ -1,0 +1,66 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Barrel
+  - Breakable
+  - Breakable1
+  - MVPlatform
+  - AudioListener
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - Ground
+  - Climbing
+  - Player
+  - Background
+  - Spikes
+  - Interactables
+  - Exploder
+  - DownSpikes
+  - RightSpikes
+  - LeftSpikes
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 2391547001
+    locked: 0
+  - name: Hazards
+    uniqueID: 3548463851
+    locked: 0
+  - name: Water
+    uniqueID: 3588466517
+    locked: 0
+  - name: Player
+    uniqueID: 2561004065
+    locked: 0
+  - name: Foreground
+    uniqueID: 1730998439
+    locked: 0
+  - name: Interactables
+    uniqueID: 980860473
+    locked: 0
