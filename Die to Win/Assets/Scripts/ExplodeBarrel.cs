@@ -19,6 +19,7 @@ public class ExplodeBarrel : MonoBehaviour
     {
         if (BarrelCollider.IsTouchingLayers(LayerMask.GetMask("Player")))
         {
+            PlayerSounds.CanPlayExplosion = true;
             Destroy(mySprite);
             ExplosionParticles.Play();
             Destroy(gameObject, (float)0.5);

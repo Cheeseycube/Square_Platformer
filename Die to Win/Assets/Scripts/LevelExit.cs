@@ -22,6 +22,8 @@ public class LevelExit : MonoBehaviour
         if (col.gameObject.tag == "Player")
         {
             Time.timeScale = 0;
+            Player.CanExplode = false;
+            Player.CanSwim = false;
             StartCoroutine(StartNextLevel());
         }
     }

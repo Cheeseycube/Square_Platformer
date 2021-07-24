@@ -25,7 +25,7 @@ public class Player : MonoBehaviour
     [SerializeField] ParticleSystem WaterParticles;
 
     // integers
-    int jumpNum = 1;
+    public static int jumpNum = 1;
     int deathCount = 0;
     int CurrentLevel = 0;
 
@@ -39,10 +39,10 @@ public class Player : MonoBehaviour
     public static bool isjumping = false;
     public static bool isDead = false;
     bool PlayerTouchingSpikes = false;
-    bool CanExplode = false; // explosing hazard property
+    public static bool CanExplode = false; 
     bool CanDie = true;
-    bool isDoubleJumping = false;
-    bool CanSwim = false;
+   public static bool isDoubleJumping = false;
+    public static bool CanSwim = false;
     public static bool isTouchingMovingPlatform = false;
     public static bool isGrounded = false;
     //bool isNormal = true;
@@ -127,10 +127,10 @@ public class Player : MonoBehaviour
         switch (CurrentLevel)
         {
             case 4:
-                transform.position = new Vector2((float)1829.82, (float)-3.33);
+                transform.position = new Vector2((float)1829.82, (float)-2.44);
                 break;
             
-            case 5:
+            case 6:
                 transform.position = new Vector2((float)485.0, (float)-2.5);
                 break;
            
@@ -155,7 +155,7 @@ public class Player : MonoBehaviour
         {
             transform.position = new Vector2((float)485.0, (float)-2.5);
         }
-        else if (SceneManager.GetActiveScene().buildIndex == 5)
+        else if (SceneManager.GetActiveScene().buildIndex == 6)
         {
             transform.position = new Vector2((float)485.0, (float)-2.5);
         }
@@ -211,9 +211,11 @@ public class Player : MonoBehaviour
 
         if (CanExplode && isDoubleJumping)
         {
+            //PlayerSounds.mayPlaySound = true;
             if(Input.GetButtonDown("Jump"))
             {
                 ExplosionParticles.Play();
+                PlayerSounds.mayPlaySound = true;
             }
         }
 
@@ -349,6 +351,7 @@ public class Player : MonoBehaviour
             else if (CanSwim)
             {
                 rend.material.color = BlueColor;
+                //WaterParticles.Play();
             }
             else
             {
@@ -404,6 +407,7 @@ public class Player : MonoBehaviour
             isjumping = true;
             isDoubleJumping = true; 
             rb.velocity = new Vector2(0f, jumpSpeed);
+            //PlayerSounds.mayPlaySound = true;
         }
         else if (Input.GetButtonDown("Jump") && (jumpNum > 0) && CanExplode)
         {
@@ -411,6 +415,7 @@ public class Player : MonoBehaviour
             isDoubleJumping = true;
             rb.velocity = new Vector2(0f, 15f);
             --jumpNum;
+            //PlayerSounds.mayPlaySound = true;
         }
 
         if (Input.GetButton("Jump") && isjumping)
@@ -435,6 +440,8 @@ public class Player : MonoBehaviour
     {
         if (Input.GetButtonDown("Reset"))
         {
+            CanExplode = false;
+            CanSwim = false;
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }

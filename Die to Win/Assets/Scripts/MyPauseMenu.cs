@@ -77,10 +77,12 @@ public class MyPauseMenu : MonoBehaviour
 
     public void GoToLevelSelect()
     {
+        Player.CanExplode = false;
+        Player.CanSwim = false;
         Time.timeScale = 1f;  
         pauseMenu.SetActive(false); // maybe
         isPaused = false;
-        SceneManager.LoadScene(6);
+        SceneManager.LoadScene(7);
     }
 
     public void QuitGame()
