@@ -129,8 +129,15 @@ public class Player : MonoBehaviour
             case 4:
                 transform.position = new Vector2((float)1829.82, (float)-2.44);
                 break;
-            
+
+            case 5:
+                transform.position = new Vector2((float)2892.32, (float)-2.44);
+                break;
+
             case 6:
+                break;
+
+            case 7:
                 transform.position = new Vector2((float)485.0, (float)-2.5);
                 break;
            
@@ -155,7 +162,7 @@ public class Player : MonoBehaviour
         {
             transform.position = new Vector2((float)485.0, (float)-2.5);
         }
-        else if (SceneManager.GetActiveScene().buildIndex == 6)
+        else if (SceneManager.GetActiveScene().buildIndex == 7)
         {
             transform.position = new Vector2((float)485.0, (float)-2.5);
         }
