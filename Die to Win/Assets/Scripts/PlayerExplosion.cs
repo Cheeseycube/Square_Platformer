@@ -24,7 +24,6 @@ public class PlayerExplosion : MonoBehaviour
     public static void SetCollider(bool isActive)
     {
         ExplosionCollider.enabled = isActive;
-        //print("yaya");
     }
 
 }

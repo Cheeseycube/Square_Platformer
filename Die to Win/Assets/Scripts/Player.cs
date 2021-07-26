@@ -12,7 +12,10 @@ public class Player : MonoBehaviour
     BoxCollider2D BodyCollider;
     CapsuleCollider2D FeetCollider;
     private Renderer rend;
-    private Color GreenColor = Color.green;
+    //private Color GreenColor = Color.green;
+    //GreenColor = new Color(17, 171, 63, 1);
+    //Color GreenColor;
+    private Color32 GreenColor = new Color32(17, 171, 63, 255);
     private Color RedColor = Color.red;
     private Color YellowColor = Color.yellow;
     private Color BlueColor = Color.blue;
@@ -33,12 +36,10 @@ public class Player : MonoBehaviour
     float mayJump = 0.1f; // coyote time for jump.  make bigger for more leeway
     float timer;
     float deathTimer;
-    float ExplosionTimer;
 
     // booleans
     public static bool isjumping = false;
     public static bool isDead = false;
-    bool PlayerTouchingSpikes = false;
     public static bool CanExplode = false; 
     bool CanDie = true;
    public static bool isDoubleJumping = false;
@@ -58,6 +59,7 @@ public class Player : MonoBehaviour
         FeetCollider = GetComponent<CapsuleCollider2D>();
         //ExplosionCollider = GetComponent<CircleCollider2D>();
         rend = GetComponent<Renderer>();
+        //GreenColor = new Color(0, 1, 0, 1);
         rend.material.color = GreenColor;
     }
 
@@ -116,7 +118,6 @@ public class Player : MonoBehaviour
         }
     }*/
 
-    // create list or array.  array length will be number of levels create currentLevel integer and update it for each level
 
 
     IEnumerator ExecuteAfterTime(float time) // this is for explosion
@@ -135,9 +136,14 @@ public class Player : MonoBehaviour
                 break;
 
             case 6:
+                transform.position = new Vector2((float)2542.035, (float)-2.44);
                 break;
 
             case 7:
+                transform.position = new Vector2((float)3226.05, (float)0.08);
+                break;
+
+            case 8:
                 transform.position = new Vector2((float)485.0, (float)-2.5);
                 break;
            
@@ -154,18 +160,32 @@ public class Player : MonoBehaviour
     {
         yield return new WaitForSeconds(time);
 
-        if (SceneManager.GetActiveScene().buildIndex == 1)
+        switch(CurrentLevel)
         {
-            transform.position = new Vector2((float)-8.11, (float)-2.51);
+            case 4:
+                transform.position = new Vector2((float)1829.82, (float)-2.44);
+                break;
+
+            case 5:
+                transform.position = new Vector2((float)2892.32, (float)-2.44);
+                break;
+
+            case 6:
+                transform.position = new Vector2((float)2542.035, (float)-2.44);
+                break;
+
+            case 7:
+                transform.position = new Vector2((float)3226.05, (float)0.08);
+                break;
+
+            case 8:
+                transform.position = new Vector2((float)485.0, (float)-2.5);
+                break;
+
+            default:
+                break;
         }
-        else if (SceneManager.GetActiveScene().buildIndex == 2)
-        {
-            transform.position = new Vector2((float)485.0, (float)-2.5);
-        }
-        else if (SceneManager.GetActiveScene().buildIndex == 7)
-        {
-            transform.position = new Vector2((float)485.0, (float)-2.5);
-        }
+
         ++deathCount;
         CanSwim = true;
         CanExplode = false;
