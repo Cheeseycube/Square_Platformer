@@ -6,12 +6,15 @@ public class PlayerSounds : MonoBehaviour
 {
     [SerializeField]  AudioClip jumpSound;
     [SerializeField] AudioClip ExplosionSound;
+    [SerializeField] AudioClip WaterSound;
     [SerializeField]  float soundVol = 0.1f;
 
     public static bool mayPlaySound = false;
     private bool mayPlaySoundDouble = true;
     bool SecondSoundPlaying = false;
     public static bool CanPlayExplosion = false;
+    private bool CanPlaySplash = false;
+    public static bool isTouchingWater = false;
 
 
     // Update is called once per frame
@@ -22,12 +25,12 @@ public class PlayerSounds : MonoBehaviour
         {
             if (Player.jumpNum > 0)
             {
-                PlayAudio();
+                PlayJumpAudio();
                 mayPlaySound = false;
             }
             else if (Player.CanExplode)
             {
-                PlayAudio();
+                PlayJumpAudio();
                 mayPlaySound = false;
             }
         }
@@ -37,6 +40,26 @@ public class PlayerSounds : MonoBehaviour
             PlayExplosionAudio();
             CanPlayExplosion = false;
         }
+
+        if (isTouchingWater && CanPlaySplash)
+        {
+            PlayWaterAudio();
+            CanPlaySplash = false;
+        }
+
+        if (!isTouchingWater)
+        {
+            CanPlaySplash = true;
+        }
+        /*if (CanPlaySplash)
+        {
+            if (Player.CanDie)
+            {
+                PlayWaterAudio();
+                isTouchingWater = true;
+            }
+            //CanPlaySplash = false;
+        }*/
 
         
         if (Player.isGrounded) 
@@ -48,7 +71,7 @@ public class PlayerSounds : MonoBehaviour
     }
 
 
-    private void PlayAudio()
+    private void PlayJumpAudio()
     {
         GameObject AudioListener = GameObject.FindWithTag("AudioListener");
         AudioSource.PlayClipAtPoint(jumpSound, AudioListener.transform.position, soundVol);
@@ -62,5 +85,11 @@ public class PlayerSounds : MonoBehaviour
         CanPlayExplosion = false;
     }
 
+    public void PlayWaterAudio()
+    {
+        GameObject AudioListener = GameObject.FindWithTag("AudioListener");
+        AudioSource.PlayClipAtPoint(WaterSound, AudioListener.transform.position, 2f); 
+            
+    }
 
 }

@@ -27,7 +27,7 @@ public class BreakEarly : MonoBehaviour
         Destroy(mySprite);
         Destroy(bc);
         BreakingParticles.Play();
-        Destroy(gameObject, (float)0.5); // use SetActive(false) to preserve gameobject
+        //Destroy(gameObject, (float)0.5); // use SetActive(false) to preserve gameobject
         
     }
 

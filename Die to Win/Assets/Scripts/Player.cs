@@ -20,8 +20,10 @@ public class Player : MonoBehaviour
     private Color YellowColor = Color.yellow;
     private Color BlueColor = Color.blue;
 
+    //PlayerSounds SoundObj;
+
     // Serialized Fields
-    [SerializeField] float runSpeed = 5f;
+    [SerializeField] float runSpeed = 5f; 
     [SerializeField] float jumpSpeed = 10f;
     [SerializeField] float heldjumpSpeed = 5f;
     [SerializeField] ParticleSystem ExplosionParticles;
@@ -41,8 +43,8 @@ public class Player : MonoBehaviour
     public static bool isjumping = false;
     public static bool isDead = false;
     public static bool CanExplode = false; 
-    bool CanDie = true;
-   public static bool isDoubleJumping = false;
+    public static bool CanDie = true;
+    public static bool isDoubleJumping = false;
     public static bool CanSwim = false;
     public static bool isTouchingMovingPlatform = false;
     public static bool isGrounded = false;
@@ -52,15 +54,14 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //ExplosionCollider.enabled = false;
         PlayerExplosion.SetCollider(false);
         rb = GetComponent<Rigidbody2D>();
         BodyCollider = GetComponent<BoxCollider2D>();
         FeetCollider = GetComponent<CapsuleCollider2D>();
-        //ExplosionCollider = GetComponent<CircleCollider2D>();
         rend = GetComponent<Renderer>();
-        //GreenColor = new Color(0, 1, 0, 1);
         rend.material.color = GreenColor;
+         //SoundObj = gameObject.GetComponent<PlayerSounds>();
+        //SoundObj = GameObject.Find("PlayerSounds").GetComponent<PlayerSounds>();
     }
 
     // Update is called once per frame
@@ -95,6 +96,7 @@ public class Player : MonoBehaviour
         SwimProperty();
         ResetLevel();
         CheckifGrounded();
+        CheckifTouchingWater();
     }
 
     private void CheckifGrounded()
@@ -106,6 +108,21 @@ public class Player : MonoBehaviour
         else
         {
             isGrounded = false;
+        }
+    }
+
+    private void CheckifTouchingWater()
+    {
+        if(BodyCollider.IsTouchingLayers(LayerMask.GetMask("Water")))
+        {
+            PlayerSounds.isTouchingWater = true;
+            //Physics2D.gravity = new Vector2(0, 0); //give player more control underwater
+            
+        }
+        else
+        {
+            PlayerSounds.isTouchingWater = false;
+            //Physics2D.gravity = new Vector2(0, -38);
         }
     }
     
@@ -140,10 +157,13 @@ public class Player : MonoBehaviour
                 break;
 
             case 7:
-                transform.position = new Vector2((float)3226.05, (float)0.08);
                 break;
 
             case 8:
+                transform.position = new Vector2((float)3226.05, (float)0.59);
+                break;
+
+            case 9:
                 transform.position = new Vector2((float)485.0, (float)-2.5);
                 break;
            
@@ -175,10 +195,13 @@ public class Player : MonoBehaviour
                 break;
 
             case 7:
-                transform.position = new Vector2((float)3226.05, (float)0.08);
                 break;
 
             case 8:
+                transform.position = new Vector2((float)3226.05, (float)0.59);
+                break;
+
+            case 9:
                 transform.position = new Vector2((float)485.0, (float)-2.5);
                 break;
 
@@ -213,7 +236,7 @@ public class Player : MonoBehaviour
     {
         if (CanSwim)
         {
-            runSpeed = 8f;
+            runSpeed = 10f; // was 8f or 10f;
         }
         else
         {
@@ -354,6 +377,7 @@ public class Player : MonoBehaviour
                 rend.material.color = RedColor;
                 deathTimer = Time.time;
 
+
                 StartCoroutine(DieToWater(0.5f));
             }
         }
@@ -397,6 +421,7 @@ public class Player : MonoBehaviour
         }
         float horizontalInput = Input.GetAxisRaw("Horizontal"); // value between -1 and +1
         rb.velocity = new Vector2(horizontalInput * runSpeed, rb.velocity.y);
+        //rb.AddForce(new Vector2(horizontalInput * runSpeed, rb.velocity.y));
     }
 
     private void Jump()
