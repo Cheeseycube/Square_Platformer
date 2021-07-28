@@ -14,7 +14,7 @@ public class PlayerSounds : MonoBehaviour
     bool SecondSoundPlaying = false;
     public static bool CanPlayExplosion = false;
     private bool CanPlaySplash = false;
-    public static bool isTouchingWater = false;
+    public static bool EnteredWater = false;
 
 
     // Update is called once per frame
@@ -41,13 +41,13 @@ public class PlayerSounds : MonoBehaviour
             CanPlayExplosion = false;
         }
 
-        if (isTouchingWater && CanPlaySplash)
+        if (EnteredWater && CanPlaySplash)
         {
             PlayWaterAudio();
             CanPlaySplash = false;
         }
 
-        if (!isTouchingWater)
+        if (!EnteredWater)
         {
             CanPlaySplash = true;
         }

@@ -32,7 +32,7 @@ public class Player : MonoBehaviour
     // integers
     public static int jumpNum = 1;
     int deathCount = 0;
-    int CurrentLevel = 0;
+    private int CurrentLevel = 0;
 
     // floats
     float mayJump = 0.1f; // coyote time for jump.  make bigger for more leeway
@@ -48,6 +48,7 @@ public class Player : MonoBehaviour
     public static bool CanSwim = false;
     public static bool isTouchingMovingPlatform = false;
     public static bool isGrounded = false;
+    public static bool isTouchingWater = false;
     //bool isNormal = true;
 
      
@@ -96,7 +97,8 @@ public class Player : MonoBehaviour
         SwimProperty();
         ResetLevel();
         CheckifGrounded();
-        CheckifTouchingWater();
+        CheckifEnteringWater();
+        Swimming();
     }
 
     private void CheckifGrounded()
@@ -111,18 +113,30 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void CheckifTouchingWater()
+    private void CheckifEnteringWater()
     {
         if(BodyCollider.IsTouchingLayers(LayerMask.GetMask("Water")))
         {
-            PlayerSounds.isTouchingWater = true;
+            PlayerSounds.EnteredWater = true;
             //Physics2D.gravity = new Vector2(0, 0); //give player more control underwater
             
         }
         else
         {
-            PlayerSounds.isTouchingWater = false;
+            PlayerSounds.EnteredWater = false;
             //Physics2D.gravity = new Vector2(0, -38);
+        }
+    }
+
+    private void Swimming()
+    {
+        if (CanSwim && isTouchingWater)
+        {
+            Physics2D.gravity = new Vector2(0, -10);
+        }
+        else
+        {
+            Physics2D.gravity = new Vector2(0, -38);
         }
     }
     
@@ -157,6 +171,7 @@ public class Player : MonoBehaviour
                 break;
 
             case 7:
+                transform.position = new Vector2((float)4011.23, (float)-2.44);
                 break;
 
             case 8:
@@ -195,6 +210,7 @@ public class Player : MonoBehaviour
                 break;
 
             case 7:
+                transform.position = new Vector2((float)4011.23, (float)-2.44);
                 break;
 
             case 8:
