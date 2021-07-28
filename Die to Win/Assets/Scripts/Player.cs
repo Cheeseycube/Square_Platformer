@@ -132,11 +132,15 @@ public class Player : MonoBehaviour
     {
         if (CanSwim && isTouchingWater)
         {
-            Physics2D.gravity = new Vector2(0, -10);
+            //Physics2D.gravity = new Vector2(0, 0);
+            rb.gravityScale = 0;
+            float verticalInput = Input.GetAxisRaw("Vertical"); // value between -1 and +1
+            rb.velocity = new Vector2(rb.velocity.x, verticalInput * runSpeed);
         }
         else
         {
-            Physics2D.gravity = new Vector2(0, -38);
+            //Physics2D.gravity = new Vector2(0, -38);
+            rb.gravityScale = 1;
         }
     }
     

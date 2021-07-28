@@ -9,6 +9,7 @@ TagManager:
   - Breakable1
   - MVPlatform
   - AudioListener
+  - FloatingBlock
   layers:
   - Default
   - TransparentFX

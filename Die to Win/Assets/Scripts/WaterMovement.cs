@@ -30,13 +30,33 @@ public class WaterMovement : MonoBehaviour
         {
             Player.isTouchingWater = false;
         }
+
+        if (col.CompareTag("FloatingBlock"))
+        {
+            FloatingBlock.BlockinWater = false;
+            FloatingBlock.BlockEnteringWater = false;
+        }
     }
 
-    private void OnTriggerStay2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D col)
     {
-        if (collision.CompareTag("Player"))
+        if (col.CompareTag("Player"))
         {
             Player.isTouchingWater = true;
+        }
+
+        if (col.CompareTag("FloatingBlock"))
+        {
+            FloatingBlock.BlockinWater = true;
+        }
+
+    }
+
+    private void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.CompareTag("FloatingBlock"))
+        {
+            FloatingBlock.BlockEnteringWater = true;
         }
     }
 }
