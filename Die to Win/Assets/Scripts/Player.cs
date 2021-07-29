@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
     Rigidbody2D rb;
     BoxCollider2D BodyCollider;
     CapsuleCollider2D FeetCollider;
+    Animator myAnim;
     private Renderer rend;
     //private Color GreenColor = Color.green;
     //GreenColor = new Color(17, 171, 63, 1);
@@ -59,6 +60,7 @@ public class Player : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         BodyCollider = GetComponent<BoxCollider2D>();
         FeetCollider = GetComponent<CapsuleCollider2D>();
+        myAnim = GetComponent<Animator>();
         rend = GetComponent<Renderer>();
         rend.material.color = GreenColor;
          //SoundObj = gameObject.GetComponent<PlayerSounds>();
@@ -99,6 +101,34 @@ public class Player : MonoBehaviour
         CheckifGrounded();
         CheckifEnteringWater();
         Swimming();
+        SetStateCam();
+    }
+
+    private void SetStateCam()
+    {
+        if (SceneManager.GetActiveScene().buildIndex != 7)
+        {
+            return;
+        }
+        Vector3 Playerpos = gameObject.transform.position;
+        if (Playerpos.y <= -14.0)
+        {
+            myAnim.SetBool("Player Under", true);
+            myAnim.SetBool("Player Main", false);
+            myAnim.SetBool("Player Top Right", false);
+        }
+        else if (Playerpos.x > 4030.33)
+        {
+            myAnim.SetBool("Player Top Right", true);
+            myAnim.SetBool("Player Under", false);
+            myAnim.SetBool("Player Main", false);
+        }
+        else
+        {
+            myAnim.SetBool("Player Main", true);
+            myAnim.SetBool("Player Under", false);
+            myAnim.SetBool("Player Top Right", false);
+        }
     }
 
     private void CheckifGrounded()
