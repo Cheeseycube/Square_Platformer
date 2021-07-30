@@ -41,7 +41,8 @@ public class SquareTeleporter : MonoBehaviour
         Vector3 Playerpos = GameObject.FindGameObjectWithTag("Player").transform.position;
         if ((Playerpos.x >= -9.5) && (Playerpos.x <= -9.2) && canTeleport && (Playerpos.y <= -2.5)) // make these variables based on level
         {
-            MovePlayer.transform.position = new Vector2((float)-9.494989, (float)-3.500385);
+            MovePlayer.transform.position = new Vector2((float)-9.5, transform.position.y);
+            print("dslkjd");
             canTeleport = false;
         }
 
