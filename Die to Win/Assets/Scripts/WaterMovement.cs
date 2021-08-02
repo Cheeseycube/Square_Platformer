@@ -24,7 +24,7 @@ public class WaterMovement : MonoBehaviour
         }
     }*/
 
-    private void OnTriggerExit2D(Collider2D col) // could use composite collider instead, need to test
+    private void OnTriggerExit2D(Collider2D col) // have an overlay in the water explaining controls a little bit
     {
         if (col.CompareTag("Player"))
         {

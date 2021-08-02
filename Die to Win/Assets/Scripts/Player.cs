@@ -82,7 +82,7 @@ public class Player : MonoBehaviour
             WaterParticles.Play();
         }
 
-        if (rb.velocity.x > 0 && CanSwim)
+        if ( ((rb.velocity.x > 0) || (Mathf.Abs(rb.velocity.y) > 0)) && CanSwim)
         {
             WaterParticles.Play();
         }

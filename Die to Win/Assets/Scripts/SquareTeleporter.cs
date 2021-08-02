@@ -46,7 +46,7 @@ public class SquareTeleporter : MonoBehaviour
             canTeleport = false;
         }
 
-        if (Input.GetKeyDown("h")) // fill in block after completing the square
+        if (Input.GetKeyDown("h")) // fill in block after completing the square. Use a collider to check if square is completed, if not completed enable teleport again after a short delay
         {
             canTeleport = true;
         }
@@ -60,7 +60,7 @@ public class SquareTeleporter : MonoBehaviour
             MovePlayer.transform.position = new Vector2((float)4008.29, transform.position.y);
             canTeleport = false;
         }
-        if (Input.GetKeyDown("h")) // fill in block after completing the square
+        if (Input.GetKeyDown("h")) // make sure player is not below the spot when teleporting
         {
             canTeleport = true;
         }
