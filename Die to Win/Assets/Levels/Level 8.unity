@@ -5045,9 +5045,13 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7165824537210002955, guid: 032c015b8121f9f4db642d1c77937016, type: 3}
+      propertyPath: m_Volume
+      value: 0.557
+      objectReference: {fileID: 0}
+    - target: {fileID: 7165824537210002955, guid: 032c015b8121f9f4db642d1c77937016, type: 3}
       propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 8300000, guid: 02b3ec90e86801a48ad472b87415338b, type: 3}
+      objectReference: {fileID: 8300000, guid: 382c8f15ef8581741bfe771cb05b28ed, type: 3}
     - target: {fileID: 7165824537210002958, guid: 032c015b8121f9f4db642d1c77937016, type: 3}
       propertyPath: m_Name
       value: Audio Components

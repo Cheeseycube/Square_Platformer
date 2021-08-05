@@ -165,7 +165,15 @@ public class Player : MonoBehaviour
             //Physics2D.gravity = new Vector2(0, 0);
             rb.gravityScale = 0;
             float verticalInput = Input.GetAxisRaw("Vertical"); // value between -1 and +1
-            rb.velocity = new Vector2(rb.velocity.x, verticalInput * runSpeed);
+            if (Input.GetButton("Jump"))
+            {
+                rb.velocity = new Vector2 (rb.velocity.x, 10f);
+            }
+            else
+            {
+                rb.velocity = new Vector2(rb.velocity.x, verticalInput * runSpeed); // THIS IS WHY PLAYER CANNOT JUMP IN WATER
+            }
+            
         }
         else
         {
@@ -185,7 +193,7 @@ public class Player : MonoBehaviour
 
 
 
-    IEnumerator ExecuteAfterTime(float time) // this is for explosion
+    IEnumerator DieToExplosion(float time) // this is for explosion
     {
         yield return new WaitForSeconds(time);
 
@@ -213,6 +221,9 @@ public class Player : MonoBehaviour
                 break;
 
             case 9:
+                break;
+
+            case 10:
                 transform.position = new Vector2((float)485.0, (float)-2.5);
                 break;
            
@@ -252,6 +263,9 @@ public class Player : MonoBehaviour
                 break;
 
             case 9:
+                break;
+
+            case 10:
                 transform.position = new Vector2((float)485.0, (float)-2.5);
                 break;
 
@@ -383,7 +397,7 @@ public class Player : MonoBehaviour
                     {
                         rb.velocity += new Vector2(20f, 0f);
                     }
-                    else
+                    else if (Input.GetAxisRaw("Horizontal") < 0)
                     {
                         rb.velocity += new Vector2(-20f, 0f);
                     }
@@ -410,7 +424,7 @@ public class Player : MonoBehaviour
                 deathTimer = Time.time;
                 rb.velocity = new Vector2(0f, 15f);
 
-                StartCoroutine(ExecuteAfterTime(0.5f));
+                StartCoroutine(DieToExplosion(0.5f));
             }
             else
             {

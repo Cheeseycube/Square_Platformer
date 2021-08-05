@@ -80,10 +80,17 @@ public class LevelSelect : MonoBehaviour
         SceneManager.LoadScene(8);
     }
 
+    public void StartLevel9()
+    {
+        FindObjectOfType<GameSession>().NewGame();
+        SceneManager.LoadScene(9);
+    }
+
 
     public void GoToMainMenu()
     {
         FindObjectOfType<GameSession>().NewGame();
         SceneManager.LoadScene(0);
     }
+
 }
