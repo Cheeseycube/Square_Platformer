@@ -162,7 +162,6 @@ public class Player : MonoBehaviour
     {
         if (CanSwim && isTouchingWater)
         {
-            //Physics2D.gravity = new Vector2(0, 0);
             rb.gravityScale = 0;
             float verticalInput = Input.GetAxisRaw("Vertical"); // value between -1 and +1
             if (Input.GetButton("Jump"))
@@ -177,23 +176,14 @@ public class Player : MonoBehaviour
         }
         else
         {
-            //Physics2D.gravity = new Vector2(0, -38);
             rb.gravityScale = 1;
         }
     }
     
-   /* void OnTriggerEnter2D(Collider2D col)
-    {
-        if (col.gameObject.tag.Equals("Breakable1") == true)
-        {
-            BreakBlock.isBreaking = true;
-            //Destroy(GameObject.FindWithTag("Breakable"));
-        }
-    }*/
 
 
 
-    IEnumerator DieToExplosion(float time) // this is for explosion
+    IEnumerator DieToExplosion(float time) 
     {
         yield return new WaitForSeconds(time);
 
@@ -221,6 +211,7 @@ public class Player : MonoBehaviour
                 break;
 
             case 9:
+                transform.position = new Vector2((float)4367.99, (float)10.55);
                 break;
 
             case 10:
@@ -263,6 +254,7 @@ public class Player : MonoBehaviour
                 break;
 
             case 9:
+                transform.position = new Vector2((float)4367.99, (float)10.55);
                 break;
 
             case 10:
