@@ -44,7 +44,6 @@ public class WaterMovement : MonoBehaviour
         {
             FloatingBlock.BlockinWater = true;
         }
-
     }
 
     private void OnTriggerEnter2D(Collider2D col)

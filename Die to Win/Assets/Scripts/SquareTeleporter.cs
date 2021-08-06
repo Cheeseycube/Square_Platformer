@@ -19,7 +19,7 @@ public class SquareTeleporter : MonoBehaviour
     void Update()
     {
         CurrentLevel = SceneManager.GetActiveScene().buildIndex;
-        print(canTeleport);
+        //print(canTeleport);
 
         switch (CurrentLevel)
         {
