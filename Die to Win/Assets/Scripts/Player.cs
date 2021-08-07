@@ -25,7 +25,7 @@ public class Player : MonoBehaviour
 
     // Serialized Fields
     [SerializeField] float runSpeed = 5f; 
-    [SerializeField] float jumpSpeed = 10f;
+    [SerializeField] float jumpSpeed = 10f; // was 10
     [SerializeField] float heldjumpSpeed = 5f;
     [SerializeField] ParticleSystem ExplosionParticles;
     [SerializeField] ParticleSystem WaterParticles;
@@ -104,7 +104,24 @@ public class Player : MonoBehaviour
         SetStateCam();
     }
 
-    private void SetStateCam() // make this its on script using the same method as the square teleporter
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Spikes"))
+        {
+            CanDie = false;
+            isDead = true;
+            rend.material.color = RedColor;
+            rb.velocity = new Vector2(25f, rb.velocity.y + 5f);
+            ++deathCount;
+            deathTimer = Time.time;
+            jumpNum = 1; // fix for double jump bug
+            PlayerExplosion.SetCollider(false);
+            CanExplode = false;
+            CanSwim = false;
+        }
+    }
+    private void SetStateCam() // make this its own script using the same method as the square teleporter
     {
         if (SceneManager.GetActiveScene().buildIndex != 7)
         {
@@ -352,7 +369,7 @@ public class Player : MonoBehaviour
             CanDie = false;
             isDead = true;
             rend.material.color = RedColor;
-            rb.velocity = new Vector2(25f, rb.velocity.y + 5f); // use force mode impluse here instead perhaps?
+            rb.velocity = new Vector2(25f, rb.velocity.y + 5f);
             ++deathCount;
             deathTimer = Time.time;
             jumpNum = 1; // fix for double jump bug
