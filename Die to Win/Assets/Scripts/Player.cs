@@ -104,7 +104,7 @@ public class Player : MonoBehaviour
         SetStateCam();
     }
 
-    private void SetStateCam()
+    private void SetStateCam() // make this its on script using the same method as the square teleporter
     {
         if (SceneManager.GetActiveScene().buildIndex != 7)
         {

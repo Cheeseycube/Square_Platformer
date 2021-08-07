@@ -19,7 +19,7 @@ public class SquareTeleporter : MonoBehaviour
     void Update()
     {
         CurrentLevel = SceneManager.GetActiveScene().buildIndex;
-        print(canTeleport);
+        //print(canTeleport);
 
         switch (CurrentLevel)
         {
@@ -84,6 +84,7 @@ public class SquareTeleporter : MonoBehaviour
         if ((Playerpos.x >= 4388.41) && (Playerpos.x <= 4388.65) && canTeleport && (Playerpos.y <= 10.606) && (Playerpos.y >= 8.5))
         {
             MovePlayer.transform.position = new Vector2((float)4388.525, Playerpos.y); // may change to playerpos.y
+            //print("teleport");
         }
         if (Input.GetKeyDown("h")) // make sure player is not below the spot when teleporting
         {
