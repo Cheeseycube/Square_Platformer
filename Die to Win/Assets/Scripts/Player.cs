@@ -104,7 +104,6 @@ public class Player : MonoBehaviour
         SetStateCam();
     }
 
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Spikes"))
@@ -112,7 +111,7 @@ public class Player : MonoBehaviour
             CanDie = false;
             isDead = true;
             rend.material.color = RedColor;
-            rb.velocity = new Vector2(25f, rb.velocity.y + 5f);
+            rb.velocity = new Vector2(0f, 25f);
             ++deathCount;
             deathTimer = Time.time;
             jumpNum = 1; // fix for double jump bug
@@ -228,7 +227,7 @@ public class Player : MonoBehaviour
                 break;
 
             case 9:
-                transform.position = new Vector2((float)4367.99, (float)10.55);
+                transform.position = new Vector2((float)4391.63, (float)10.55);
                 break;
 
             case 10:
@@ -271,7 +270,7 @@ public class Player : MonoBehaviour
                 break;
 
             case 9:
-                transform.position = new Vector2((float)4367.99, (float)10.55);
+                transform.position = new Vector2((float)4391.63, (float)10.55);
                 break;
 
             case 10:
@@ -325,7 +324,7 @@ public class Player : MonoBehaviour
             //ExplosionCollider.enabled = false;
             PlayerExplosion.SetCollider(false);
         }
-        else if (Input.GetButtonUp("Jump")) // and is doublejumping?
+        else if (Input.GetButtonDown("Jump")) // was get button Up
         {
             //ExplosionCollider.enabled = true;
             PlayerExplosion.SetCollider(true);
@@ -538,7 +537,7 @@ public class Player : MonoBehaviour
         {
             isjumping = true; // or rather, is double jumping
             isDoubleJumping = true;
-            rb.velocity = new Vector2(0f, 15f);
+            rb.velocity = new Vector2(0f, 16.3f);
             --jumpNum;
             //PlayerSounds.mayPlaySound = true;
         }
