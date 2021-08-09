@@ -29,7 +29,7 @@ public class Level9Square1 : MonoBehaviour
         if (col.CompareTag("FloatingBlock") && mayAdd)
         {
             mayAdd = false;
-            squareParticles.Stop();
+            Destroy(squareParticles);
             GameSession.MayFillSquare1 = false;
             FindObjectOfType<GameSession>().AddToScore(1);
         }

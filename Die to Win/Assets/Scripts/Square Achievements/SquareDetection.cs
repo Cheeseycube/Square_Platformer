@@ -23,6 +23,7 @@ public class SquareDetection : MonoBehaviour
         {
             MayAdd = false;
             FindObjectOfType<GameSession>().AddToScore(1);
+            SquarePause.SquareisPaused = true;
             FillSquare.FillinSquare(true);
            // Destroy(gameObject); // could disable collider instead if need be
         }

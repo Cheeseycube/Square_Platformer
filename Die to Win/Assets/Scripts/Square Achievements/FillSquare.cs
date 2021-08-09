@@ -111,7 +111,7 @@ public class FillSquare : MonoBehaviour
 
     IEnumerator DelayFillingIn(float time)
     {
-        yield return new WaitForSecondsRealtime(time); // might make this not real time so that pausing the game doesn't screw me over // could also use translate to avoid issue of reappearing gaps
+        yield return new WaitForSeconds(time); // might make this not real time so that pausing the game doesn't screw me over // could also use translate to avoid issue of reappearing gaps
         squareCol.enabled = true;
         squareSprite.enabled = true;
         //squareParticles.Stop();
