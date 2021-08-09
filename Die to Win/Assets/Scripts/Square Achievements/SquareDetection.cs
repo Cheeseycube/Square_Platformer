@@ -24,7 +24,7 @@ public class SquareDetection : MonoBehaviour
             MayAdd = false;
             FindObjectOfType<GameSession>().AddToScore(1);
             FillSquare.FillinSquare(true);
-           // Destroy(gameObject); // could disable colldier instead if need be
+           // Destroy(gameObject); // could disable collider instead if need be
         }
     }
 

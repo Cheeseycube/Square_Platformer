@@ -27,8 +27,16 @@ public class SquareTeleporter : MonoBehaviour
                 Level1();
                 break;
 
+            case 6:
+                Level6();
+                break;
+
             case 7:
                 Level7();
+                break;
+
+            case 8:
+                Level8();
                 break;
 
             case 9:
@@ -51,6 +59,10 @@ public class SquareTeleporter : MonoBehaviour
 
     private void Level1()
     {
+        if (GameSession.SquareCol)
+        {
+            return;
+        }
         Vector3 Playerpos = GameObject.FindGameObjectWithTag("Player").transform.position;
         if ((Playerpos.x >= -9.78) && (Playerpos.x <= -9.2) && canTeleport && (Playerpos.y <= -2.5)) // make these variables based on level was -9.5 on left
         {
@@ -63,19 +75,32 @@ public class SquareTeleporter : MonoBehaviour
         }
     }
 
+    private void Level6()
+    {
+        Vector3 Playerpos = GameObject.FindGameObjectWithTag("Player").transform.position;
+        if ((Playerpos.x >= 2551.831) && (Playerpos.x <= 2552.227) && canTeleport && (Playerpos.y <= 8.7) && (Playerpos.y >= 8.33))
+        {
+            MovePlayer.transform.position = new Vector2((float)2552.026, Playerpos.y);
+        }
+        
+    }
+
     private void Level7()
     {
         Vector3 Playerpos = GameObject.FindGameObjectWithTag("Player").transform.position;
-        if ((Playerpos.x >= 4008.189) && (Playerpos.x <= 4008.367) && canTeleport && (Playerpos.y <= -2.34) && (Playerpos.y >= -2.6))
+        if ((Playerpos.x >= 4045.038) && (Playerpos.x <= 4045.556) && canTeleport && (Playerpos.y <= -2.34) && (Playerpos.y >= -2.6))
         {
-            MovePlayer.transform.position = new Vector2((float)4008.29, transform.position.y); // may change to playerpos.y
-            canTeleport = false;
+            MovePlayer.transform.position = new Vector2((float)4045.29, transform.position.y); // may change to playerpos.y
         }
-        if (Input.GetKeyDown("h")) // make sure player is not below the spot when teleporting
-        {
-            canTeleport = true;
-        }
+    }
 
+    private void Level8()
+    {
+        Vector3 Playerpos = GameObject.FindGameObjectWithTag("Player").transform.position;
+        if ((Playerpos.x >= 3225.821) && (Playerpos.x <= 3226.197) && (Playerpos.y <= -5.317) && (Playerpos.y >= -5.698))
+        {
+            MovePlayer.transform.position = new Vector2((float)3226.022, Playerpos.y); // may change to playerpos.y
+        }
     }
 
     private void Level9()

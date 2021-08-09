@@ -34,62 +34,62 @@ public class LevelSelect : MonoBehaviour
 
     public void StartLevel1()
     {
-        FindObjectOfType<GameSession>().NewGame();
+        //FindObjectOfType<GameSession>().NewGame();
         SceneManager.LoadScene(1);
     }
 
     public void StartLevel2()
     {
-        FindObjectOfType<GameSession>().NewGame();
+        //FindObjectOfType<GameSession>().NewGame();
         SceneManager.LoadScene(2);
     }
 
     public void StartLevel3()
     {
-        FindObjectOfType<GameSession>().NewGame();
+        //FindObjectOfType<GameSession>().NewGame();
         SceneManager.LoadScene(3);
     }
 
     public void StartLevel4()
     {
-        FindObjectOfType<GameSession>().NewGame();
+        //FindObjectOfType<GameSession>().NewGame();
         SceneManager.LoadScene(4);
     }
 
     public void StartLevel5()
     {
-        FindObjectOfType<GameSession>().NewGame();
+        //FindObjectOfType<GameSession>().NewGame();
         SceneManager.LoadScene(5);
     }
 
     public void StartLevel6()
     {
-        FindObjectOfType<GameSession>().NewGame();
+       // FindObjectOfType<GameSession>().NewGame();
         SceneManager.LoadScene(6);
     }
 
     public void StartLevel7()
     {
-        FindObjectOfType<GameSession>().NewGame();
+        //FindObjectOfType<GameSession>().NewGame();
         SceneManager.LoadScene(7);
     }
 
     public void StartLevel8()
     {
-        FindObjectOfType<GameSession>().NewGame();
+       // FindObjectOfType<GameSession>().NewGame();
         SceneManager.LoadScene(8);
     }
 
     public void StartLevel9()
     {
-        FindObjectOfType<GameSession>().NewGame();
+        //FindObjectOfType<GameSession>().NewGame();
         SceneManager.LoadScene(9);
     }
 
 
     public void GoToMainMenu()
     {
-        FindObjectOfType<GameSession>().NewGame();
+        //FindObjectOfType<GameSession>().NewGame();
         SceneManager.LoadScene(0);
     }
 

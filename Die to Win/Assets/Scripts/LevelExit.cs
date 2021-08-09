@@ -24,6 +24,9 @@ public class LevelExit : MonoBehaviour
             Time.timeScale = 0;
             Player.CanExplode = false;
             Player.CanSwim = false;
+            GameSession.MayFillSquare = true;
+            GameSession.SquareCol = false;
+            GameSession.SquareSprite = false;
             StartCoroutine(StartNextLevel());
         }
     }

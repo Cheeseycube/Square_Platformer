@@ -113,8 +113,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -92.259, y: 28.148}
-  m_SizeDelta: {x: 182.7405, y: 56.295807}
+  m_AnchoredPosition: {x: -51.48532, y: 28.147995}
+  m_SizeDelta: {x: 101.1932, y: 56.2958}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &869847518
 CanvasRenderer:
@@ -157,7 +157,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 9999
+  m_Text: 99
 --- !u!1 &1632349105
 GameObject:
   m_ObjectHideFlags: 0
@@ -374,8 +374,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -275, y: 28.148}
-  m_SizeDelta: {x: 182.7405, y: 56.295807}
+  m_AnchoredPosition: {x: -359.15, y: 28.147995}
+  m_SizeDelta: {x: 514.1412, y: 56.2958}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &691551247153305499
 CanvasRenderer:
@@ -418,7 +418,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Score:'
+  m_Text: 'Squares Completed:'
 --- !u!1 &7976321334119037558
 GameObject:
   m_ObjectHideFlags: 0

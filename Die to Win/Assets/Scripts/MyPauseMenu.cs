@@ -77,6 +77,9 @@ public class MyPauseMenu : MonoBehaviour
 
     public void GoToLevelSelect()
     {
+        GameSession.MayFillSquare = true; // added this recently
+        GameSession.SquareCol = false;
+        GameSession.SquareSprite = false;
         Player.CanExplode = false;
         Player.CanSwim = false;
         Time.timeScale = 1f;  
