@@ -130,6 +130,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7165824537210002953, guid: 032c015b8121f9f4db642d1c77937016, type: 3}
+      propertyPath: ExplosionSound
+      value: 
+      objectReference: {fileID: 8300000, guid: d3ca6f3fcbc413a4095289c078e8f322, type: 3}
     - target: {fileID: 7165824537210002954, guid: 032c015b8121f9f4db642d1c77937016, type: 3}
       propertyPath: m_RootOrder
       value: 13
@@ -28915,7 +28919,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1689885528}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1836.8611, y: 3.8665593, z: -52.801178}
+  m_LocalPosition: {x: 1836.8611, y: 3.8741238, z: -52.801178}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
