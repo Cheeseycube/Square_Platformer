@@ -25,6 +25,7 @@ public class SquareDetection : MonoBehaviour
             FindObjectOfType<GameSession>().AddToScore(1);
             SquarePause.SquareisPaused = true;
             FillSquare.FillinSquare(true);
+            SquareSound.mayPlaySquareSound = true; // testing needed
            // Destroy(gameObject); // could disable collider instead if need be
         }
     }

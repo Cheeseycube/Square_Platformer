@@ -32,6 +32,7 @@ public class Level9Square1 : MonoBehaviour
             Destroy(squareParticles);
             GameSession.MayFillSquare1 = false;
             FindObjectOfType<GameSession>().AddToScore(1);
+            SquarePause.SquareisPaused = true;
         }
     }
 }

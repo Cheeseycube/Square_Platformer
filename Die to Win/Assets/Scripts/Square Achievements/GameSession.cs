@@ -8,8 +8,8 @@ public class GameSession : MonoBehaviour
 {
     // new gamesession
     //[SerializeField] int playerLives = 3;
+    public GameObject UICanvas;
     [SerializeField] float LevelLoadDelay = 1f;
-    [SerializeField] Text deathsText;
     [SerializeField] Text scoreText;
     [SerializeField] int score = 0;
     [SerializeField] int numDeaths = 0; // may be able to unserialize
@@ -65,7 +65,6 @@ public class GameSession : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        deathsText.text = numDeaths.ToString();
         scoreText.text = score.ToString();
     }
 
@@ -78,7 +77,6 @@ public class GameSession : MonoBehaviour
     public void ProcessPlayerDeath()
     {
         numDeaths += 1;
-        deathsText.text = numDeaths.ToString();
         StartCoroutine(RestartLevel());
         RestartLevel();
     }
@@ -86,7 +84,6 @@ public class GameSession : MonoBehaviour
     public void NewGame()
     {
         numDeaths = 0;
-        deathsText.text = numDeaths.ToString();
         score = 0;
         scoreText.text = score.ToString();
 
@@ -130,6 +127,15 @@ public class GameSession : MonoBehaviour
         else
         {
             SetSquareEmpty();
+        }
+
+        if (currLevel == 0)
+        {
+            UICanvas.SetActive(false);
+        }
+        else
+        {
+            UICanvas.SetActive(true);
         }
 
         AllSquaresFound = score > 6;

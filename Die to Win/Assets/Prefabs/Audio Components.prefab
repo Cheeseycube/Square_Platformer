@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7165824537210002954}
   - component: {fileID: 7165824537210002952}
   - component: {fileID: 7165824537210002953}
+  - component: {fileID: 1701065145}
   m_Layer: 0
   m_Name: Audio Components
   m_TagString: AudioListener
@@ -55,4 +56,18 @@ MonoBehaviour:
   jumpSound: {fileID: 8300000, guid: 431ebec02b0236f45866d0f3251440e9, type: 3}
   ExplosionSound: {fileID: 8300000, guid: d3ca6f3fcbc413a4095289c078e8f322, type: 3}
   WaterSound: {fileID: 8300000, guid: c4ed2e33b62616143931b075668bb7d7, type: 3}
+  soundVol: 0.5
+--- !u!114 &1701065145
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7165824537210002958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 355a223610392144fad7f109b216b293, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  squareSound: {fileID: 8300000, guid: 393cea81b8811684dbf1bf50dfc8331f, type: 3}
   soundVol: 0.5

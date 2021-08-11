@@ -134,8 +134,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 189, y: -86}
-  m_SizeDelta: {x: 206.2793, y: 88.4}
+  m_AnchoredPosition: {x: 244.70398, y: -67.43103}
+  m_SizeDelta: {x: 340.6873, y: 67.4621}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2844712399414638502
 CanvasRenderer:
@@ -158,7 +158,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.22921698, g: 0.7169812, b: 0.043965846, a: 1}
+  m_Color: {r: 0.25192773, g: 0.6886792, b: 0.08770915, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -178,4 +178,4 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Press "R" to restart level.  "Y" for controller
+  m_Text: Press "R" to Restart level.  "Y" for controller

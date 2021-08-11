@@ -46,6 +46,7 @@ public class Level9Square3 : MonoBehaviour
             GameSession.SquareSprite3 = true;
             GameSession.MayFillSquare3 = false;
             FindObjectOfType<GameSession>().AddToScore(1);
+            SquarePause.SquareisPaused = true;
 
         }
     }
