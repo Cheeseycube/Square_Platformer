@@ -78,6 +78,7 @@ public class PlayerV2 : MonoBehaviour
         ExplosionProperty();
         SwimProperty();
         CombineProperties();
+        Swimming();
     }
 
     private void Run()
@@ -384,6 +385,28 @@ public class PlayerV2 : MonoBehaviour
         if (CanSwim && CanExplode)
         {
             mySprite.sprite = CombinedSprite;
+        }
+    }
+
+    private void Swimming()
+    {
+        if (CanSwim && Player.isTouchingWater)
+        {
+            rb.gravityScale = 0;
+            float verticalInput = Input.GetAxisRaw("Vertical"); // value between -1 and +1
+            if (Input.GetButton("Jump"))
+            {
+                rb.velocity = new Vector2(rb.velocity.x, 10f);
+            }
+            else
+            {
+                rb.velocity = new Vector2(rb.velocity.x, verticalInput * runSpeed); // THIS IS WHY PLAYER CANNOT JUMP IN WATER
+            }
+
+        }
+        else
+        {
+            rb.gravityScale = 1;
         }
     }
 

@@ -10,4 +10,9 @@ public class Menu : MonoBehaviour
         FindObjectOfType<GameSession>().NewGame();
         SceneManager.LoadScene(1);
     }
+
+    public void ReturnToMainMenu()
+    {
+        SceneManager.LoadScene(0);
+    }
 }
