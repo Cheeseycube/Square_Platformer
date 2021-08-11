@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class Level10Exit : MonoBehaviour
 {
+    [SerializeField] private GameObject PortalMessage;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,6 +30,10 @@ public class Level10Exit : MonoBehaviour
             GameSession.SquareSprite = false;
             StartCoroutine(StartNextLevel());
         }
+        else
+        {
+            StartCoroutine(EnablePortalMessage());
+        }
     }
     IEnumerator StartNextLevel()
     {
@@ -36,5 +41,13 @@ public class Level10Exit : MonoBehaviour
         var currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(currentSceneIndex + 1);
         Time.timeScale = 1;
+    }
+
+    IEnumerator EnablePortalMessage()
+    {
+        PortalMessage.SetActive(true);
+        yield return new WaitForSecondsRealtime((float)2f);
+        PortalMessage.SetActive(false);
+        
     }
 }

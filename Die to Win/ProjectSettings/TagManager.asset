@@ -11,6 +11,7 @@ TagManager:
   - AudioListener
   - FloatingBlock
   - Spikes
+  - Music1
   layers:
   - Default
   - TransparentFX

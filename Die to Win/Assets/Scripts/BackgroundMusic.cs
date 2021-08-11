@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BackgroundMusic : MonoBehaviour
 {
@@ -20,6 +21,15 @@ public class BackgroundMusic : MonoBehaviour
         {
             DontDestroyOnLoad(gameObject);
         }
+
+        /*if (SceneManager.GetActiveScene().buildIndex > 8)
+        {
+            GameObject.FindWithTag("Music1").audio.mute = true;
+        }
+        else
+        {
+            //UnMute();
+        }*/
     }
 
     // Start is called before the first frame update
@@ -29,14 +39,23 @@ public class BackgroundMusic : MonoBehaviour
     }
     public static void AudioToggle()
     {
-        myAudio.mute = !myAudio.mute;
-        //AudioListener.pause = !AudioListener.pause;
+       // myAudio.mute = !myAudio.mute;
+        AudioListener.pause = !AudioListener.pause;
         //myAudio.enabled = false;
         
     }
 
+
     // Update is called once per frame
     void Update()
     {
+        if (SceneManager.GetActiveScene().buildIndex > 8)
+       {
+            myAudio.mute = true;
+       }
+       else
+       {
+            myAudio.mute = false;
+       }
     }
 }
