@@ -12,9 +12,12 @@ public class MyPauseMenu : MonoBehaviour
     public static bool isPaused;
     public static bool ControllerPaused = false;
 
+    //BackgroundMusic musicObj;
+
     // Start is called before the first frame update
     void Start()
     {
+        //musicObj = new BackgroundMusic();
         pauseMenu.SetActive(false);
     }
 
@@ -91,5 +94,23 @@ public class MyPauseMenu : MonoBehaviour
     public void QuitGame()
     {
         Application.Quit();
+    }
+
+    public void ToMainMenu()
+    {
+        GameSession.MayFillSquare = true;
+        GameSession.SquareCol = false;
+        GameSession.SquareSprite = false;
+        Player.CanExplode = false;
+        Player.CanSwim = false;
+        Time.timeScale = 1f;
+        pauseMenu.SetActive(false);
+        isPaused = false;
+        SceneManager.LoadScene(0);
+    }
+
+    public void ToggleAudio()
+    {
+        BackgroundMusic.AudioToggle();
     }
 }

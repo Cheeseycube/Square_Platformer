@@ -556,6 +556,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4338158307154979479, guid: 88adc5c9d1e6cc8468563fcdcea13f5a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1314176272}
+    - target: {fileID: 4338158307154979479, guid: 88adc5c9d1e6cc8468563fcdcea13f5a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ToggleAudio
+      objectReference: {fileID: 0}
     - target: {fileID: 6131090560514456394, guid: 88adc5c9d1e6cc8468563fcdcea13f5a, type: 3}
       propertyPath: m_fontAsset
       value: 
