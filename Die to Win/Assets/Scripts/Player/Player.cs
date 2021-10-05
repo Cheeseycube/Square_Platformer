@@ -25,8 +25,8 @@ public class Player : MonoBehaviour
 
     // Serialized Fields
     [SerializeField] float runSpeed = 5f; 
-    [SerializeField] float jumpSpeed = 10f; // was 10
-    [SerializeField] float heldjumpSpeed = 5f;
+    [SerializeField] float jumpSpeed = 11f; // was 13 currently 14
+    [SerializeField] float heldjumpSpeed = 5f; // was 4 currently 4
     [SerializeField] ParticleSystem ExplosionParticles;
     [SerializeField] ParticleSystem WaterParticles;
 
