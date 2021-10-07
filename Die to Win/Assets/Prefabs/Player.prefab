@@ -9854,7 +9854,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   runSpeed: 5
-  jumpSpeed: 13
+  jumpSpeed: 14
   heldjumpSpeed: 4
   ExplosionParticles: {fileID: 5506270660184433338}
   WaterParticles: {fileID: 1275847936}
